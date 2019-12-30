@@ -1,6 +1,8 @@
 let express = require("express")
+var cors = require('cors')
 
 let app = express()
+app.use(cors())
 let weatherRoute = require('./routes/weather')
 
 app.use(weatherRoute)
