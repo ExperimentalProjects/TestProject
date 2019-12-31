@@ -30,8 +30,6 @@ router.get('/weather', (req, res) => {
                 if (err) {
                     console.log(err);
                 } else {
-                    console.log(data)
-                    console.log(result)
                     res.send(data)
                 }
             }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import styled from 'styled-components'
 import { getWeather } from '../utils/api';
 
 const loadWeatherDetails = (zipcode, setWeather) => {
@@ -13,7 +14,7 @@ const Weather = (props) => {
     useEffect(() => loadWeatherDetails(props.city, setWeather), [props.city])
     const { location, current_observation, forecasts } = weather;
     return (
-        <div>
+        <Container>
             {location && <div>
                 {location.city}
             </div>
@@ -23,11 +24,18 @@ const Weather = (props) => {
             </div>
             }
             {forecasts && <div>
-                {forecasts.map(dayData => <div>{dayData.day} {dayData.text}</div>)}
+                {forecasts.map(dayData => <div key={dayData.date}>{dayData.day} {dayData.text}</div>)}
             </div>
             }
-        </div>
+        </Container>
     )
 }
 
 export default Weather
+
+const Container = styled.div`
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  align-items: center;
+`
