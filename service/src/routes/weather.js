@@ -20,13 +20,31 @@ var weatherRequest = new OAuth.OAuth(
 );
 
 router.get('/weather', (req, res) => {
-    if (req.query.zipcode) {
+    if (req.query.location) {
         // get weather and send 
         weatherRequest.get(
-            `https://weather-ydn-yql.media.yahoo.com/forecastrss?location=${req.query.zipcode},ca&format=json`,
+            `https://weather-ydn-yql.media.yahoo.com/forecastrss?location=${req.query.location},ca&format=json`,
             null,
             null,
             function (err, data, result) {
+                if (err) {
+                    console.log(err);
+                } else {
+                    res.send(data)
+                }
+            }
+        );
+    } else if (req.query.lat && req.query.lon) {
+        // get weather and send 
+        console.log("lat", req.query.lat)
+        console.log("lon", req.query.lon)
+        weatherRequest.get(
+            `https://weather-ydn-yql.media.yahoo.com/forecastrss?lat=${req.query.lat}&lon=${req.query.lon},ca&format=json`,
+            null,
+            null,
+            function (err, data, result) {
+                console.log("data", data)
+                console.log("result", result)
                 if (err) {
                     console.log(err);
                 } else {
