@@ -2,9 +2,10 @@
 
 let baseUrl = "http://localhost:3030/"
 
-export const getWeather = (zipcode) => {
+export const getWeather = (city) => {
     return new Promise((resolve, reject) => {
-        fetch(`${baseUrl}weather?zipcode=${zipcode}`).then(
+        let location = city.city
+        fetch(`${baseUrl}weather?location=${location}`).then(
             response => {
                 response.json().then(data => {
                     console.log(data)

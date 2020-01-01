@@ -12,7 +12,7 @@ const ListItem = (props) => {
                 <MediumText>{props.city}</MediumText>
             </ListItemContainer>
             {isItSelected &&
-                <Weather city={props.city} />
+                <Weather {...props} />
             }
 
         </Container>
