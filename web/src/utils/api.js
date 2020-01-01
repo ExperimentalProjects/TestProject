@@ -1,6 +1,6 @@
 
 
-let baseUrl = "http://localhost:3030/"
+let baseUrl = "https://whispering-castle-37895.herokuapp.com/"
 
 export const getWeather = (city) => {
     return new Promise((resolve, reject) => {

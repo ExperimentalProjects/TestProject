@@ -10,6 +10,7 @@ const ListItem = (props) => {
         <Container>
             <ListItemContainer onClick={props.onSelect}>
                 <MediumText>{props.city}</MediumText>
+                <SmallText>Check Weather</SmallText>
             </ListItemContainer>
             {isItSelected &&
                 <Weather {...props} />
@@ -33,6 +34,7 @@ const ListItemContainer = styled.div`
  display: flex;
  flex:1;
  flex-direction: row;
+ align-items: center;
  justify-content: space-between;
  box-shadow: -2px -2px 15px 3px #dedada;
  border-radius: 4px;
@@ -44,4 +46,10 @@ const MediumText = styled.h3`
     font-size: 25px,
     font-weight: 600;
     color: black;
+`
+
+const SmallText = styled.span`
+    font-size: 12px,
+    font-weight: 300;
+    color: blue;
 `

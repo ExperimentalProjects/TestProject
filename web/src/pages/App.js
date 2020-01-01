@@ -9,7 +9,7 @@ function App() {
 
   return (
     <AppContainer>
-      {/* <h1>Weather</h1> */}
+      <h1>Weather</h1>
       {cities.map(city =>
         <ListItem
           {...city}
